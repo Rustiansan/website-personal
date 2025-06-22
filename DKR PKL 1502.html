@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DKR PANGKALAN - Profil Resmi Pramuka</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9Q2evSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Custom CSS untuk mempercantik dengan tema Pramuka Coklat */
+    body {
+      font-family: 'Inter', sans-serif;
+      padding-top: 70px;
+      background-color: #f8f9fa; /* Warna latar belakang umum */
+    }
+    .navbar {
+      background-color: #8B4513; /* Coklat Pramuka */
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.15); /* Hover lebih cerah */
+      border-radius: 0.375rem;
+    }
+    .hero-section {
+      background: linear-gradient(to right, #8B4513, #654321); /* Gradien coklat gelap */
+      color: #fff;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://placehold.co/1920x1080/8B4513/FFFFFF/png?text=Pramuka+Berpetualang+Coklat'); /* Gambar latar belakang Pramuka Coklat */
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3; /* Transparansi gambar latar */
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-title {
+      color: #8B4513; /* Coklat Pramuka */
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
+    .card {
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan sedikit lebih kuat */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      border: none; /* Hilangkan border default */
+    }
+    .card:hover {
+      transform: translateY(-7px); /* Efek hover lebih menonjol */
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+    .team-member-img {
+      border-radius: 50%;
+      border: 4px solid #ffc107; /* Warna Kuning Pramuka */
+      object-fit: cover;
+    }
+    .btn-primary {
+      background-color: #8B4513; /* Coklat Pramuka */
+      border-color: #8B4513;
+      border-radius: 9999px;
+      padding: 0.75rem 2.2rem; /* Padding lebih besar */
+      font-weight: 600;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    .btn-primary:hover {
+      background-color: #A0522D; /* Coklat lebih terang */
+      border-color: #A0522D;
+      transform: scale(1.08); /* Skala hover lebih besar */
+    }
+    .btn-outline-light {
+      border-color: #fff;
+      color: #fff;
+      border-radius: 9999px;
+      padding: 0.75rem 2.2rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    .btn-outline-light:hover {
+      background-color: #fff;
+      color: #8B4513; /* Teks coklat saat hover */
+      transform: scale(1.08);
+    }
+    .form-control {
+      border-radius: 0.5rem;
+      padding: 0.8rem 1.2rem; /* Padding form control lebih besar */
+    }
+    .form-control:focus {
+      border-color: #8B4513;
+      box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.25); /* Shadow focus coklat */
+    }
+    footer {
+      background-color: #343a40; /* Abu-abu gelap (bisa juga diubah ke coklat sangat gelap) */
+      color: #fff;
+      padding-top: 3.5rem; /* Padding lebih besar */
+      padding-bottom: 3.5rem;
+    }
+    footer a {
+      color: #add8e6; /* Biru muda untuk tautan footer */
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+    .text-primary {
+      color: #8B4513 !important; /* Pastikan semua teks primary berwarna coklat pramuka */
+    }
+    .hover-primary:hover {
+        color: #8B4513 !important;
+    }
+    /* Styles for showing/hiding sections */
+    .content-section {
+        display: none; /* Hide all sections by default */
+        padding-bottom: 50px; /* Add some padding to bottom of each section */
+    }
+    .content-section.active {
+        display: block; /* Show active section */
+    }
+    .loading-spinner {
+      display: none;
+      margin: 20px auto;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #8B4513; /* Coklat Pramuka */
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 0.8s linear infinite;
+    }
+    .loading-spinner-sm {
+        width: 20px;
+        height: 20px;
+        border-width: 3px;
+        margin: 5px auto; /* Centering for smaller spinner */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .summary-text, .generated-description, .motto-text {
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+        border-left: 3px solid #8B4513;
+        padding-left: 10px;
+        background-color: #f2f2f2;
+        padding: 8px;
+        border-radius: 5px;
+    }
+    .alert-message {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ffc107; /* Kuning Pramuka */
+        color: #343a40;
+        padding: 15px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: none;
+        font-weight: bold;
+    }
+    #ticketPurchaseSuccess {
+        background-color: #d4edda; /* Light green for success */
+        color: #155724; /* Dark green text */
+        border: 1px solid #c3e6cb;
+        padding: 1rem;
+        margin-top: 1.5rem;
+        border-radius: 0.5rem;
+        display: none; /* Hidden by default */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <!-- Using Font Awesome compass icon for Pramuka theme -->
+        <i class="fas fa-compass me-2" style="font-size: 1.5rem;"></i>
+        <span class="fs-4 fw-bold">DKR PANGKALAN 1502</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" data-target-section="beranda">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-target-section="tentang">Tentang Kami</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-target-section="program">Program Kegiatan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-target-section="berita">Berita</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-target-section="tiket">Beli Tiket</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-target-section="tim">Dewan Kerja</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-target-section="kontak">Hubungi Kami</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Alert Message (for displaying messages instead of alert()) -->
+  <div id="alertMessage" class="alert-message" style="display: none;"></div>
+
+  <!-- Main Content (Sections will be shown/hidden by JS) -->
+  <div id="mainContent">
+    <!-- Home Section (Hero Section) -->
+    <section id="beranda" class="hero-section content-section active">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="display-3 fw-bolder mb-4 animate__animated animate__fadeInUp">
+          Satya Ku Dharmakan, Darma Ku Baktikan
+        </h1>
+        <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+          Mewujudkan Generasi Muda yang Berkarakter, Mandiri, dan Peduli Lingkungan
+        </p>
+        <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp animate__delay-2s">
+          <a href="#" class="btn btn-primary btn-lg" data-target-section="tentang">Telusuri Kami</a>
+          <a href="#" class="btn btn-outline-light btn-lg" data-target-section="program">Lihat Kegiatan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="tentang" class="py-5 bg-white content-section">
+      <div class="container">
+        <h2 class="text-center section-title display-4">Tentang DKR PANGKALAN</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img
+              src="https://placehold.co/800x600/8B4513/FFFFFF/png?text=Kegiatan+Pramuka+Coklat"
+              alt="Kegiatan Pramuka"
+              class="img-fluid rounded-xl shadow-lg"
+            />
+          </div>
+          <div class="col-md-6">
+            <p class="lead text-muted mb-4">
+              Dewan Kerja Ranting (DKR) Pangkalan 1502 adalah wadah pembinaan dan pengembangan generasi muda Pramuka Penegak dan Pandega di wilayah Pangkalan. Didirikan pada tahun [Tahun Pendirian], kami bertekad untuk membentuk tunas-tunas bangsa yang berintegritas, kreatif, dan memiliki jiwa kepemimpinan.
+            </p>
+            <p class="lead text-muted mb-4">
+              Dengan semangat Tri Satya dan Dasa Darma Pramuka, kami menyelenggarakan berbagai kegiatan yang bertujuan untuk mengasah keterampilan, membangun karakter, serta menumbuhkan rasa cinta tanah air dan kepedulian sosial.
+            </p>
+            <p class="lead text-muted">
+              Visi kami adalah . Kami fokus pada [Pendidikan Karakter & Kepemimpinan], [Pengembangan Keterampilan Survival], dan [Bakti Masyarakat & Lingkungan]. Bergabunglah bersama kami untuk menciptakan petualangan dan perubahan positif!
+            </p>
+            <!-- Gemini API Feature: Generate Motto/Quote -->
+            <div class="mt-4">
+                <button class="btn btn-primary btn-sm mb-2" onclick="generateMotto()">
+                    ✨ Dapatkan Inspirasi Slogan/Kata Mutiara
+                </button>
+                <div id="mottoResult" class="card p-3" style="display: none;">
+                    <p id="mottoText" class="mb-0 motto-text"></p>
+                    <div id="mottoSpinner" class="loading-spinner loading-spinner-sm"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Activities Section -->
+    <section id="program" class="py-5 bg-light content-section">
+      <div class="container">
+        <h2 class="text-center section-title display-4">Program & Proyek Kegiatan Kami</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <!-- Program Card 1: Environmental Education -->
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="https://placehold.co/600x400/8B4513/FFFFFF/png?text=Pendidikan+Lingkungan+Coklat"
+                class="card-img-top"
+                alt="Pendidikan Lingkungan"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-primary fw-bold program-title">Penjelajahan dan Konservasi Lingkungan</h5>
+                <p class="card-text text-muted program-brief-description">
+                  Melalui kegiatan penjelajahan alam dan edukasi, kami menumbuhkan kesadaran serta partisipasi dalam pelestarian lingkungan.
+                </p>
+                <a href="#" class="text-primary fw-medium">
+                  Pelajari Lebih Lanjut <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+                <!-- Gemini API Button for Program Description -->
+                <button class="btn btn-sm btn-outline-primary mt-3" onclick="generateProgramDescription(this)">
+                    ✨ Dapatkan Deskripsi Lengkap
+                </button>
+                <div class="description-output mt-2">
+                    <p class="generated-description" style="display: none;"></p>
+                    <div class="loading-spinner loading-spinner-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Program Card 2: Leadership Skills -->
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="https://placehold.co/600x400/A0522D/FFFFFF/png?text=Keterampilan+Kepemimpinan+Coklat"
+                class="card-img-top"
+                alt="Keterampilan Kepemimpinan"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-primary fw-bold program-title">Pelatihan Kepemimpinan & Manajerial</h5>
+                <p class="card-text text-muted program-brief-description">
+                  Membekali anggota dengan keterampilan kepemimpinan, organisasi, dan manajemen proyek melalui simulasi dan praktik.
+                </p>
+                <a href="#" class="text-primary fw-medium">
+                  Pelajari Lebih Lanjut <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+                <!-- Gemini API Button for Program Description -->
+                <button class="btn btn-sm btn-outline-primary mt-3" onclick="generateProgramDescription(this)">
+                    ✨ Dapatkan Deskripsi Lengkap
+                </button>
+                <div class="description-output mt-2">
+                    <p class="generated-description" style="display: none;"></p>
+                    <div class="loading-spinner loading-spinner-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Program Card 3: Community Service -->
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="https://placehold.co/600x400/654321/FFFFFF/png?text=Bakti+Masyarakat+Coklat"
+                class="card-img-top"
+                alt="Bakti Masyarakat"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-primary fw-bold program-title">Aksi Sosial dan Bakti Masyarakat</h5>
+                <p class="card-text text-muted program-brief-description">
+                  Mengajak Pramuka untuk aktif berkontribusi dalam kegiatan sosial, membantu sesama, dan membersihkan lingkungan.
+                </p>
+                <a href="#" class="text-primary fw-medium">
+                  Pelajari Lebih Lanjut <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+                <!-- Gemini API Button for Program Description -->
+                <button class="btn btn-sm btn-outline-primary mt-3" onclick="generateProgramDescription(this)">
+                    ✨ Dapatkan Deskripsi Lengkap
+                </button>
+                <div class="description-output mt-2">
+                    <p class="generated-description" style="display: none;"></p>
+                    <div class="loading-spinner loading-spinner-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gemini API Feature: Generate New Activity Idea -->
+        <div class="mt-5 text-center">
+            <h3 class="section-title fs-4">Butuh Ide Kegiatan Baru?</h3>
+            <button class="btn btn-primary btn-lg mb-3" onclick="generateActivityIdea()">
+                ✨ Dapatkan Ide Kegiatan Pramuka Baru
+            </button>
+            <div id="activityIdeaResult" class="card p-4 mt-3" style="display: none;">
+                <p id="activityIdeaText" class="mb-0 text-muted"></p>
+                <div id="activityIdeaSpinner" class="loading-spinner"></div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="berita" class="py-5 bg-white content-section">
+      <div class="container">
+        <h2 class="text-center section-title display-4">Berita Terbaru</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <!-- News Article 1 -->
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="https://placehold.co/600x400/8B4513/FFFFFF/png?text=Berita+1+Pramuka"
+                class="card-img-top"
+                alt="Judul Berita 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Latihan Gabungan Pramuka Penegak se-Kabupaten Pangkalan Sukses Digelar!</h5>
+                <p class="card-text text-muted small news-content">
+                  <i class="fas fa-calendar-alt me-1"></i> 10 Juni 2025 | <i class="fas fa-tag me-1"></i> Kegiatan <br/>
+                  Latihan gabungan yang diikuti oleh seluruh Pramuka Penegak di Kabupaten Pangkalan berjalan lancar dan penuh semangat. Para peserta dibekali materi pioneering dan tali-temali, serta diajak untuk mempererat tali persaudaraan antar-Gugus Depan. Kegiatan ini diharapkan dapat meningkatkan kualitas dan kapabilitas Pramuka Penegak dalam menghadapi tantangan di masa depan.
+                </p>
+                <a href="#" class="text-primary fw-medium">
+                  Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+                <button class="btn btn-sm btn-outline-primary mt-3" onclick="summarizeNews(this)">
+                    ✨ Ringkas Berita
+                </button>
+                <div class="summary-output mt-2">
+                    <p class="summary-text" style="display: none;"></p>
+                    <div class="loading-spinner loading-spinner-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Article 2 -->
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="https://placehold.co/600x400/A0522D/FFFFFF/png?text=Berita+2+Pramuka"
+                class="card-img-top"
+                alt="Judul Berita 2"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">DKR PANGKALAN Gelar Aksi Bersih Lingkungan di Sungai Lokal</h5>
+                <p class="card-text text-muted small news-content">
+                  <i class="fas fa-calendar-alt me-1"></i> 05 Juni 2025 | <i class="fas fa-tag me-1"></i> Bakti Masyarakat <br/>
+                  Sebagai bentuk kepedulian terhadap lingkungan, DKR Pangkalan bersama masyarakat setempat melakukan aksi bersih-bersih di sepanjang bantaran sungai. Kegiatan ini bertujuan untuk menjaga kebersihan ekosistem air dan menyadarkan pentingnya pelestarian lingkungan kepada generasi muda. Banyak sampah plastik berhasil dikumpulkan.
+                </p>
+                <a href="#" class="text-primary fw-medium">
+                  Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+                <button class="btn btn-sm btn-outline-primary mt-3" onclick="summarizeNews(this)">
+                    ✨ Ringkas Berita
+                </button>
+                <div class="summary-output mt-2">
+                    <p class="summary-text" style="display: none;"></p>
+                    <div class="loading-spinner loading-spinner-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Article 3 -->
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="https://placehold.co/600x400/654321/FFFFFF/png?text=Berita+3+Pramuka"
+                class="card-img-top"
+                alt="Judul Berita 3"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Perkemahan Bakti: Mengasah Kemandirian dan Kebersamaan Pramuka</h5>
+                <p class="card-text text-muted small news-content">
+                  <i class="fas fa-calendar-alt me-1"></i> 28 Mei 2025 | <i class="fas fa-tag me-1"></i> Perkemahan <br/>
+                  Ratusan Pramuka mengikuti Perkemahan Bakti yang diselenggarakan oleh DKR Pangkalan. Kegiatan ini berfokus pada pengembangan keterampilan survival, kerja sama tim, dan pengabdian kepada masyarakat sekitar. Peserta diajarkan cara membangun bivak, navigasi darat, dan pertolongan pertama.
+                </p>
+                <a href="#" class="text-primary fw-medium">
+                  Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+                <button class="btn btn-sm btn-outline-primary mt-3" onclick="summarizeNews(this)">
+                    ✨ Ringkas Berita
+                </button>
+                <div class="summary-output mt-2">
+                    <p class="summary-text" style="display: none;"></p>
+                    <div class="loading-spinner loading-spinner-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-primary btn-lg" data-target-section="berita">Lihat Semua Berita <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticket Purchase Section -->
+    <section id="tiket" class="py-5 bg-white content-section">
+      <div class="container">
+        <h2 class="text-center section-title display-4">Pembelian Tiket Kegiatan</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-10">
+            <div class="card p-5 shadow-lg">
+              <h3 class="text-primary fw-bold mb-4 text-center">Formulir Pemesanan Tiket</h3>
+              <form id="ticketForm">
+                <div class="mb-3">
+                  <label for="ticketType" class="form-label fw-bold">Pilih Jenis Tiket</label>
+                  <select class="form-select form-control" id="ticketType" required>
+                    <option value="">Pilih...</option>
+                    <option value="Perkemahan Bakti Tahunan">Perkemahan Bakti Tahunan - Rp 50.000</option>
+                    <option value="Pelatihan Kepemimpinan Muda">Pelatihan Kepemimpinan Muda - Rp 75.000</option>
+                    <option value="Lomba Ketangkasan Pramuka">Lomba Ketangkasan Pramuka - Rp 30.000</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="quantity" class="form-label fw-bold">Jumlah Tiket</label>
+                  <input type="number" class="form-control" id="quantity" min="1" value="1" required>
+                </div>
+                <div class="mb-3">
+                  <label for="buyerName" class="form-label fw-bold">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="buyerName" placeholder="Nama Anda" required>
+                </div>
+                <div class="mb-3">
+                  <label for="buyerEmail" class="form-label fw-bold">Email</label>
+                  <input type="email" class="form-control" id="buyerEmail" placeholder="email@example.com" required>
+                </div>
+                <div class="mb-4">
+                  <label for="buyerPhone" class="form-label fw-bold">Nomor Telepon</label>
+                  <input type="tel" class="form-control" id="buyerPhone" placeholder="Contoh: 081234567890" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                    Beli Tiket Sekarang <i class="fas fa-ticket-alt ms-2"></i>
+                </button>
+              </form>
+              <div id="ticketPurchaseSuccess" class="alert mt-4 text-center">
+                Terima kasih! Pemesanan tiket Anda berhasil. Detail akan dikirim ke email Anda.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="tim" class="py-5 bg-white content-section">
+      <div class="container">
+        <h2 class="text-center section-title display-4">Dewan Kerja Kami</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+          <!-- Member 1 -->
+          <div class="col">
+            <div class="card text-center h-100 p-3">
+              <img
+                src="https://placehold.co/150x150/8B4513/FFFFFF/png?text=Ketua+DKR"
+                alt="Ketua Dewan Kerja"
+                class="img-fluid team-member-img mx-auto mb-3"
+                style="width: 150px; height: 150px;"
+              />
+              <div class="card-body p-0">
+                <h5 class="card-title fw-bold text-dark mb-1">Kak [Nama Lengkap]</h5>
+                <p class="card-text text-primary small">Ketua Dewan Kerja Ranting</p>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="col">
+            <div class="card text-center h-100 p-3">
+              <img
+                src="https://placehold.co/150x150/8B4513/FFFFFF/png?text=Wakil+DKR"
+                alt="Wakil Ketua Dewan Kerja"
+                class="img-fluid team-member-img mx-auto mb-3"
+                style="width: 150px; height: 150px;"
+              />
+              <div class="card-body p-0">
+                <h5 class="card-title fw-bold text-dark mb-1">Kak [Nama Lengkap]</h5>
+                <p class="card-text text-primary small">Wakil Ketua DKR</p>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="col">
+            <div class="card text-center h-100 p-3">
+              <img
+                src="https://placehold.co/150x150/8B4513/FFFFFF/png?text=Sekretaris"
+                alt="Sekretaris"
+                class="img-fluid team-member-img mx-auto mb-3"
+                style="width: 150px; height: 150px;"
+              />
+              <div class="card-body p-0">
+                <h5 class="card-title fw-bold text-dark mb-1">Kak [Nama Lengkap]</h5>
+                <p class="card-text text-primary small">Sekretaris</p>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 4 -->
+          <div class="col">
+            <div class="card text-center h-100 p-3">
+              <img
+                src="https://placehold.co/150x150/8B4513/FFFFFF/png?text=Bendahara"
+                alt="Bendahara"
+                class="img-fluid team-member-img mx-auto mb-3"
+                style="width: 150px; height: 150px;"
+              />
+              <div class="card-body p-0">
+                <h5 class="card-title fw-bold text-dark mb-1">Kak [Nama Lengkap]</h5>
+                <p class="card-text text-primary small">Bendahara</p>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                  <a href="#" class="text-muted hover-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-5 bg-light content-section">
+      <div class="container">
+        <h2 class="text-center section-title display-4">Hubungi Kami</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card p-4 h-100">
+              <h3 class="card-title text-primary fw-bold mb-4">Kirim Pesan kepada Kami</h3>
+              <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label fw-bold">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-bold">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label fw-bold">Pesan Anda</label>
+                  <textarea class="form-control" id="message" rows="6" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3">Kirim Pesan</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-4 h-100">
+              <h3 class="card-title text-primary fw-bold mb-4">Informasi Kontak</h3>
+              <ul class="list-unstyled space-y-3">
+                <li class="d-flex align-items-start mb-3">
+                  <i class="fas fa-map-marker-alt fa-lg text-primary me-3 mt-1"></i>
+                  <span>[Alamat Sanggar DKR PANGKALAN Anda]</span>
+                </li>
+                <li class="d-flex align-items-start mb-3">
+                  <i class="fas fa-phone fa-lg text-primary me-3 mt-1"></i>
+                  <span>[Nomor Telepon Sekretariat]</span>
+                </li>
+                <li class="d-flex align-items-start mb-3">
+                  <i class="fas fa-envelope fa-lg text-primary me-3 mt-1"></i>
+                  <span>[Email DKR PANGKALAN]</span>
+                </li>
+              </ul>
+              <h4 class="fw-bold text-primary mt-4 mb-3">Temukan Kami di Media Sosial</h4>
+              <div class="d-flex gap-3">
+                <a href="#" class="text-muted hover-primary" style="font-size: 1.8rem;"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-muted hover-primary" style="font-size: 1.8rem;"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-muted hover-primary" style="font-size: 1.8rem;"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-muted hover-primary" style="font-size: 1.8rem;"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Map Location (Optional) -->
+        <div class="mt-5 card shadow-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/place/Kwartir+ranting+pangkalan+1502/@-6.4953861,107.2149733,15z/data=!4m6!3m5!1s0x2e69a1004efe2f61:0x61a9979d6a78dca0!8m2!3d-6.499497!4d107.216923!16s%2Fg%2F11vplxtw76?entry=ttu&g_ep=EgoyMDI1MDYxNi4wIKXMDSoASAFQAw%3D%3D"
+            width="100%"
+            height="450"
+            style="border:0; border-bottom-left-radius: 0.75rem; border-bottom-right-radius: 0.75rem;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokasi Kantor Kami"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </div> <!-- End of #mainContent -->
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white fw-bold mb-3">DKR PANGKALAN 1502</h5>
+          <p class="text-muted">Satya Ku Dharmakan, Darma Ku Baktikan.</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white fw-bold mb-3">Tautan Cepat</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-muted" data-target-section="beranda">Beranda</a></li>
+            <li><a href="#" class="text-muted" data-target-section="tentang">Tentang Kami</a></li>
+            <li><a href="#" class="text-muted" data-target-section="program">Program Kegiatan</a></li>
+            <li><a href="#" class="text-muted" data-target-section="berita">Berita</a></li>
+            <li><a href="#" class="text-muted" data-target-section="tiket">Beli Tiket</a></li>
+            <li><a href="#" class="text-muted" data-target-section="kontak">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-white fw-bold mb-3">Ikuti Kami</h5>
+          <div class="d-flex justify-content-center justify-content-md-start gap-3">
+            <a href="#" class="text-muted"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#" class="text-muted"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="#" class="fab fa-instagram fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 border-secondary">
+      <div class="text-center text-muted small">
+        &copy; <span id="currentYear"></span> DKR PANGKALAN 1502. Semua Hak Dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Function to show a specific section and hide others
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show the target section
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+        // Scroll to the top of the content area after switching "page"
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update active class on nav links
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        if (link.dataset.targetSection === sectionId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Function to show a custom alert message
+    function showAlert(message, duration = 3000) {
+        const alertDiv = document.getElementById('alertMessage');
+        alertDiv.textContent = message;
+        alertDiv.style.display = 'block';
+        setTimeout(() => {
+            alertDiv.style.display = 'none';
+        }, duration);
+    }
+
+    // --- Gemini API Integrations ---
+
+    // Function to generate a new Pramuka activity idea (in Program Kegiatan section)
+    async function generateActivityIdea() {
+        const resultDiv = document.getElementById('activityIdeaResult');
+        const resultText = document.getElementById('activityIdeaText');
+        const spinner = document.getElementById('activityIdeaSpinner');
+
+        resultDiv.style.display = 'block'; // Show the card container
+        resultText.style.display = 'none'; // Hide text while loading
+        spinner.style.display = 'block'; // Show spinner
+
+        try {
+            let chatHistory = [];
+            const prompt = "Berikan ide kegiatan Pramuka Penegak/Pandega yang kreatif dan edukatif, fokus pada pengembangan karakter, keterampilan bertahan hidup, atau bakti masyarakat. Berikan ide yang singkat, menarik, dan sebutkan tujuan utamanya. Contoh: 'Malam Renungan Api Unggun: Membangun Keakraban dan Refleksi Diri'.";
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // API key will be provided by Canvas runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                const text = result.candidates[0].content.parts[0].text;
+                resultText.textContent = text;
+                resultText.style.display = 'block'; // Show the result text
+                showAlert('Ide kegiatan baru berhasil dibuat!', 2500);
+            } else {
+                resultText.textContent = 'Gagal menghasilkan ide kegiatan. Coba lagi.';
+                resultText.style.display = 'block';
+                console.error('Unexpected API response structure for activity idea:', result);
+                showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+            }
+        } catch (error) {
+            resultText.textContent = 'Terjadi kesalahan saat menghubungi API.';
+            resultText.style.display = 'block';
+            console.error('Error calling Gemini API for activity idea:', error);
+            showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+        } finally {
+            spinner.style.display = 'none'; // Hide spinner
+        }
+    }
+
+    // Function to generate a detailed program description
+    async function generateProgramDescription(buttonElement) {
+        const cardBody = buttonElement.closest('.card-body');
+        const programTitleElement = cardBody.querySelector('.program-title');
+        const programBriefDescriptionElement = cardBody.querySelector('.program-brief-description');
+        const generatedDescriptionElement = cardBody.querySelector('.generated-description');
+        const descriptionSpinner = cardBody.querySelector('.loading-spinner');
+
+        if (!programTitleElement || !programBriefDescriptionElement || !generatedDescriptionElement || !descriptionSpinner) {
+            console.error('Required elements not found for program description.');
+            showAlert('Gagal menghasilkan deskripsi: Elemen tidak ditemukan.', 2500);
+            return;
+        }
+
+        const programTitle = programTitleElement.textContent.trim();
+        const programBriefDescription = programBriefDescriptionElement.textContent.trim();
+        const prompt = `Buat deskripsi lengkap untuk kegiatan Pramuka berjudul "${programTitle}" dengan ringkasan: "${programBriefDescription}". Fokus pada tujuan, manfaat, dan contoh aktivitas detail (maksimal 5 kalimat).`;
+
+        generatedDescriptionElement.style.display = 'none'; // Hide previous description
+        descriptionSpinner.style.display = 'block'; // Show spinner
+
+        try {
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // API key will be provided by Canvas runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                const description = result.candidates[0].content.parts[0].text;
+                generatedDescriptionElement.textContent = description;
+                generatedDescriptionElement.style.display = 'block'; // Show the generated description
+                showAlert('Deskripsi kegiatan berhasil dibuat!', 2500);
+            } else {
+                generatedDescriptionElement.textContent = 'Gagal menghasilkan deskripsi. Coba lagi.';
+                generatedDescriptionElement.style.display = 'block';
+                console.error('Unexpected API response structure for program description:', result);
+                showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+            }
+        } catch (error) {
+            generatedDescriptionElement.textContent = 'Terjadi kesalahan saat menghubungi API.';
+            generatedDescriptionElement.style.display = 'block';
+            console.error('Error calling Gemini API for program description:', error);
+            showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+        } finally {
+            descriptionSpinner.style.display = 'none'; // Hide spinner
+        }
+    }
+
+    // Function to summarize news articles
+    async function summarizeNews(buttonElement) {
+        const cardBody = buttonElement.closest('.card-body');
+        const newsContentElement = cardBody.querySelector('.news-content');
+        const summaryTextElement = cardBody.querySelector('.summary-text');
+        const summarySpinner = cardBody.querySelector('.loading-spinner');
+
+        if (!newsContentElement || !summaryTextElement || !summarySpinner) {
+            console.error('Required elements not found for summarization.');
+            showAlert('Gagal meringkas: Elemen tidak ditemukan.', 2500);
+            return;
+        }
+
+        // Get the full news content, excluding the date and tag lines
+        let fullNewsText = newsContentElement.textContent.trim();
+        const dateTagRegex = /(\d{1,2} \w+ \d{4} \| \w+)/; // Regex to remove date | tag
+        fullNewsText = fullNewsText.replace(dateTagRegex, '').trim();
+
+
+        if (!fullNewsText) {
+            showAlert('Tidak ada teks berita untuk diringkas.', 2500);
+            return;
+        }
+
+        summaryTextElement.style.display = 'none'; // Hide previous summary
+        summarySpinner.style.display = 'block'; // Show spinner
+
+        try {
+            let chatHistory = [];
+            const prompt = `Ringkas teks berita berikut ini menjadi maksimal 3 kalimat: "${fullNewsText}"`;
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // API key will be provided by Canvas runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                const summary = result.candidates[0].content.parts[0].text;
+                summaryTextElement.textContent = summary;
+                summaryTextElement.style.display = 'block'; // Show the summary text
+                showAlert('Berita berhasil diringkas!', 2500);
+            } else {
+                summaryTextElement.textContent = 'Gagal meringkas berita.';
+                summaryTextElement.style.display = 'block';
+                console.error('Unexpected API response structure for news summary:', result);
+                showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+            }
+        } catch (error) {
+            summaryTextElement.textContent = 'Terjadi kesalahan saat menghubungi API.';
+            summaryTextElement.style.display = 'block';
+            console.error('Error calling Gemini API for news summary:', error);
+            showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+        } finally {
+            summarySpinner.style.display = 'none'; // Hide spinner
+        }
+    }
+
+    // Function to generate an inspiring Pramuka motto/quote
+    async function generateMotto() {
+        const mottoResultDiv = document.getElementById('mottoResult');
+        const mottoTextElement = document.getElementById('mottoText');
+        const mottoSpinner = document.getElementById('mottoSpinner');
+
+        mottoResultDiv.style.display = 'block'; // Show the card container
+        mottoTextElement.style.display = 'none'; // Hide text while loading
+        mottoSpinner.style.display = 'block'; // Show spinner
+
+        try {
+            let chatHistory = [];
+            const prompt = "Buatlah satu slogan atau kata mutiara inspiratif tentang semangat Pramuka, kepemimpinan, persaudaraan, atau bakti alam. Maksimal 2 kalimat.";
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // API key will be provided by Canvas runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                const motto = result.candidates[0].content.parts[0].text;
+                mottoTextElement.textContent = motto;
+                mottoTextElement.style.display = 'block'; // Show the motto text
+                showAlert('Inspirasi slogan baru berhasil dibuat!', 2500);
+            } else {
+                mottoTextElement.textContent = 'Gagal menghasilkan slogan. Coba lagi.';
+                mottoTextElement.style.display = 'block';
+                console.error('Unexpected API response structure for motto:', result);
+                showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+            }
+        } catch (error) {
+            mottoTextElement.textContent = 'Terjadi kesalahan saat menghubungi API.';
+            mottoTextElement.style.display = 'block';
+            console.error('Error calling Gemini API for motto:', error);
+            showAlert('Terjadi kesalahan. Coba lagi nanti.', 2500);
+        } finally {
+            mottoSpinner.style.display = 'none'; // Hide spinner
+        }
+    }
+
+    // --- Ticket Purchase Logic ---
+    document.getElementById('ticketForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent actual form submission
+
+        // Get form values
+        const ticketType = document.getElementById('ticketType').value;
+        const quantity = document.getElementById('quantity').value;
+        const buyerName = document.getElementById('buyerName').value;
+        const buyerEmail = document.getElementById('buyerEmail').value;
+        const buyerPhone = document.getElementById('buyerPhone').value;
+
+        // Basic validation
+        if (!ticketType || quantity < 1 || !buyerName || !buyerEmail || !buyerPhone) {
+            showAlert('Harap lengkapi semua kolom yang diperlukan dan pilih jenis tiket.', 4000);
+            return;
+        }
+
+        // Simulate purchase success
+        const successMessageDiv = document.getElementById('ticketPurchaseSuccess');
+        successMessageDiv.style.display = 'block';
+        showAlert('Pemesanan tiket Anda berhasil!', 3000);
+
+        // Clear the form after a short delay
+        setTimeout(() => {
+            document.getElementById('ticketForm').reset();
+            successMessageDiv.style.display = 'none';
+        }, 3500); // Hide success message and clear form after 3.5 seconds
+    });
+
+
+    // --- Existing Page Navigation Logic ---
+
+    // Event listeners for navigation links and other buttons
+    document.querySelectorAll('.navbar-nav .nav-link, .hero-content .btn, .footer .list-unstyled a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        const targetSectionId = this.dataset.targetSection;
+        if (targetSectionId) { // Only call showSection if data-target-section exists
+            showSection(targetSectionId);
+        }
+
+        // Close the navbar toggler on mobile after clicking a link
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarToggler && navbarCollapse.classList.contains('show')) {
+            new bootstrap.Collapse(navbarCollapse, { toggle: false }).hide();
+        }
+      });
+    });
+
+    // Initial load: show the 'beranda' section by default
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('beranda');
+    });
+  </script>
+</body>
+</html>
